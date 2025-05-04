@@ -32,7 +32,7 @@ public class Invoice implements Payable {
         this.pricePerItem = pricePerItem;
     }
 
-    //override method dari interface Payable untuk menghitung total tagihan
+    //override method dari interface Payable untuk menghitung total tagihan tiap item
     //menghitung total tagihan dengan mengalikan quantity dan pricePerItem
     @Override
     public int getPayableAmount() {

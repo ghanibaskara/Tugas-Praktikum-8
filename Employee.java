@@ -40,20 +40,25 @@ public class Employee implements Payable {
         this.invoices = invoices;
     }
 
+    //override method dari interface Payable untuk menghitung total tagihan yang harus dibayar karyawan
     @Override
     public int getPayableAmount() {
         int totalInvoiceAmount = 0;
-        for (Invoice invoice : invoices) {
+        for (Invoice invoice : invoices) { //iterasi menggunakan for each untuk setiap array invoice untuk mengambil setiap objek pada arrat invoices yang kemudian disimpan ke dalam variabel invoice
+            //menghitung total tagihan dengan memanggil method getPayableAmount dari class Invoice yang akan ditambahkan ke variabel totalInvoiceAmount
             totalInvoiceAmount += invoice.getPayableAmount();
         }
         return totalInvoiceAmount;
     }
 
+    //method untuk menghitung gaji bersih karyawan setelah dikurangi total tagihan 
     public int getGajiBersih() {
+        //menghitung gaji bersih dengan mengurangi gaji per bulan dengan total tagihan yang harus dibayar
         return salaryPerMonth - getPayableAmount();
     }
    
-
+    //override method toString untuk menampilkan informasi karyawan
+    //menggunakan String.format untuk format output yang lebih rapi
     @Override
     public String toString() {
         return String.format("Nama Karyawan: %s\n" +
